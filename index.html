@@ -32,29 +32,7 @@
             cursor: pointer; /* Aggiunto per indicare che l'immagine è cliccabile */
         }
         
-        /* Stili per la lightbox */
-        .lightbox {
-            display: none; /* Nascondi la lightbox inizialmente */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8); /* Sfondo semi-trasparente */
-        }
-        
-        .lightbox img {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .lightbox:target {
-            display: block; /* Mostra la lightbox quando viene cliccata l'immagine */
-        }
+ 
         .spaced-div {
             margin-top: 50px; /* Regola questa misura come preferisci */
         }
@@ -124,17 +102,15 @@
     <div class="spaced-div">
         <img src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/logovinz.png" style="width: 20%; height: 20%;" alt="Logo">
     </div>
+    
     <div class="spaced-div">
         <h1>List of identified proteins</h1>
     </div>
-    <a href="#lightbox">
-        <img class="immagine" src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/tablewithallproteins.png" alt="table">
-    </a>
+    
 
-    <div id="lightbox" class="lightbox">
-        <a href="#">
-            <img src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/tablewithallproteins.png" alt="table">
-        </a>
+    <div class="spaced-div">        
+    <img src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/tablewithallproteins.png" alt="table">
+
     </div>
 
     <div class="contact-info">
