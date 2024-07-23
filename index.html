@@ -29,6 +29,32 @@
             immagine {
             max-width: 10%;
             margin-bottom: 1em;
+            cursor: pointer; /* Aggiunto per indicare che l'immagine è cliccabile */
+        }
+        
+        /* Stili per la lightbox */
+        .lightbox {
+            display: none; /* Nascondi la lightbox inizialmente */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8); /* Sfondo semi-trasparente */
+        }
+        
+        .lightbox img {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox:target {
+            display: block; /* Mostra la lightbox quando viene cliccata l'immagine */
+        }
         }
         .spaced-div {
             margin-top: 50px; /* Regola questa misura come preferisci */
@@ -92,7 +118,7 @@
 
 <body>
     
-  <img class="immagine" src = "https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/logosapienza.png">
+  <img class="lightbox" src = "https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/logosapienza.png">
   
     <div class="spaced-div">
         <h1>Intranasal insulin administration reduces oxidative stress-induced damage and improves mitochonrial bioenergetics in Alzheimer disease. </h1>
