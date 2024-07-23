@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Antonella Tramutola B.S., Ph.D. </title>
+    <title>Antonella Tramutola B.S., Ph.D.</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,10 +26,10 @@
             height: auto;
             margin-bottom: 1em;
         }
-            immagine {
+        .immagine {
             max-width: 10%;
             margin-bottom: 1em;
-            cursor: pointer; /* Aggiunto per indicare che l'immagine è cliccabile */
+            cursor: pointer; /* Indica che l'immagine è cliccabile */
         }
         
         /* Stili per la lightbox */
@@ -41,21 +41,20 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0,0,0,0.8); /* Sfondo semi-trasparente */
+            justify-content: center;
+            align-items: center;
         }
-        
+
         .lightbox img {
-            margin: auto;
-            display: block;
             max-width: 90%;
             max-height: 90%;
         }
 
-        .lightbox:target {
-            display: block; /* Mostra la lightbox quando viene cliccata l'immagine */
+        .lightbox.show {
+            display: flex;
         }
-        }
+
         .spaced-div {
             margin-top: 50px; /* Regola questa misura come preferisci */
         }
@@ -70,7 +69,7 @@
                 font-size: 1.5em;
             }
         }
-              .contact-info {
+        .contact-info {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
@@ -115,35 +114,24 @@
   gtag('config', 'G-ZG0Z7DQQQM');
 </script>
 
-
 <body>
-    
-        <img  src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/logosapienza.png" alt="Logo Sapienza">
+    <img src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/logosapienza.png" alt="Logo Sapienza">
 
-        
-
-        
-    </div>  
     <div class="spaced-div">
-        <h1>Intranasal insulin administration reduces oxidative stress-induced damage and improves mitochonrial bioenergetics in Alzheimer disease. </h1>
-        <p> <i> <b>Antonella Tramutola</b>, Sara Pagnotta, Lucrezia Romana Rolfi, Fabio Di Domenico, Tommaso Cassano, Federica Ivarone, Marzia Perluigi, Eugenio Barone </i> </p>
+        <h1>Intranasal insulin administration reduces oxidative stress-induced damage and improves mitochonrial bioenergetics in Alzheimer disease.</h1>
+        <p><i><b>Antonella Tramutola</b>, Sara Pagnotta, Lucrezia Romana Rolfi, Fabio Di Domenico, Tommaso Cassano, Federica Ivarone, Marzia Perluigi, Eugenio Barone</i></p>
     </div>
     <div class="spaced-div">
         <img src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/logovinz.png" style="width: 20%; height: 20%;" alt="Logo">
     </div>
     <div class="spaced-div">
-    <h1>List of identified proteins</h1>
+        <h1>List of identified proteins</h1>
     </div>
-        <a href="#lightbox">
-        <img class="immagine" src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/tablewithallproteins.png" alt="table">
-    </a>
+    <img class="immagine" src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/tablewithallproteins.png" alt="table" onclick="openFullscreen(this)">
 
-    <div id="lightbox" class="lightbox">
-        <a href="#">
-            <img src="https://raw.githubusercontent.com/eugedp/eugedp.github.io/main/tablewithallproteins.png" alt="table">
-        </a>
+    <div id="lightbox" class="lightbox" onclick="closeFullscreen()">
+        <img id="lightbox-img" src="" alt="table">
     </div>
-
 
     <div class="contact-info">
         <h2>Contacts</h2>
@@ -156,6 +144,37 @@
             <p>Email: <a href="mailto:antonella.tramutola@uniroma1.it">antonella.tramutola@uniroma1.it</a></p>
         </div>
     </div>
- 
+
+    <script>
+        function openFullscreen(img) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('show');
+            if (lightbox.requestFullscreen) {
+                lightbox.requestFullscreen();
+            } else if (lightbox.mozRequestFullScreen) { /* Firefox */
+                lightbox.mozRequestFullScreen();
+            } else if (lightbox.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                lightbox.webkitRequestFullscreen();
+            } else if (lightbox.msRequestFullscreen) { /* IE/Edge */
+                lightbox.msRequestFullscreen();
+            }
+        }
+
+        function closeFullscreen() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { /* Firefox */
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE/Edge */
+                document.msExitFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
